@@ -31,6 +31,7 @@ public class TorpedoStore {
 
   public boolean fire(int numberOfTorpedos){
     if(numberOfTorpedos < 1 || numberOfTorpedos > this.torpedoCount){
+      // By throwing a new throwable object, it thrwos a throwable exception
       throw new IllegalArgumentException("numberOfTorpedos"); // Fixed #1
     }
 
@@ -41,7 +42,7 @@ public class TorpedoStore {
 
     if (r >= FAILURE_RATE) {
       // successful firing
-      this.torpedoCount = this.torpedoCount - numberOfTorpedos; // Fixed #3
+      this.torpedoCount -= numberOfTorpedos; // Fixed #3
       success = true;
     } else {
       // simulated failure
